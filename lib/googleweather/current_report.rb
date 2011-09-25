@@ -13,6 +13,6 @@ module Googleweather
     
     def temp
       @temp_f
-    end   
+    end    
   end  
 end

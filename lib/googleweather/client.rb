@@ -11,13 +11,21 @@ module Googleweather
     
     def initialize(city_or_zip)
       if city_or_zip.to_i == 0
-        @zip  = city_or_zip.to_s
+        @city  = city_or_zip
       else
-        @city = city_or_zip
+        @zip = city_or_zip.to_s
       end     
       
       update_weather    
     end
+    
+    def now
+      @weather.now
+    end
+    
+    def forecast
+      @weather.forecast
+    end    
     
     def update_weather
       @weather = WeatherData.new(get)
@@ -28,7 +36,6 @@ module Googleweather
     end 
     
     def get
-      puts "Retrieving : #{url}"
       resp = Net::HTTP.get_response(url)
       
       if resp.code == "200"

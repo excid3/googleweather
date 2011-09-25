@@ -52,7 +52,7 @@ module Googleweather
           :day         => day_of_week,
           :low         => node_data(day, 'low'),
           :high        => node_data(day, 'high'),
-          :img         => node_data(day, 'icon'),
+          :img         => google_image_url(node_data(day, 'icon')),
           :condition   => node_data(day, 'condition')
         })
       end  
@@ -69,17 +69,27 @@ module Googleweather
           :condition => node_data(cc, 'condition'),
           :temp_f    => node_data(cc, 'temp_f'), 
           :temp_c    => node_data(cc, 'temp_c'),
-          :humidity  => node_data(cc, 'humidity'),
-          :window    => node_data(cc, 'wind'),
-          :img       => node_data(cc, 'icon')
+          :humidity  => parse_percentage(node_data(cc, 'humidity')),
+          :wind      => parse_wind(node_data(cc, 'wind_condition')),
+          :img       => google_image_url(node_data(cc, 'icon'))
       })      
     end  
     
     private
     
+    def parse_percentage(str)
+      /\d*%/.match(str).to_s
+    end
+    
+    def google_image_url(relative_path)
+      'http://www.google.com' + relative_path
+    end  
+    
+    def parse_wind(str)
+      str.gsub('Wind: ', '')
+    end  
+    
     def node_data(xml, node)
-      puts "Parsing #{node}"
-      
       noko = xml.at_css(node)
       noko ? noko[:data] : ""
     end  

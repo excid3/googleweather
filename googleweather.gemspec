@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Googleweather::VERSION
   s.authors     = ["brookemckim"]
   s.email       = ["brooke.mckim@gmail.com"]
-  s.homepage    = "http://bmckim.me"
+  s.homepage    = "http://github.com/brookemckim/googleweather/"
   s.summary     = %q{Google Weather API Client}
   s.description = %q{Client for the undocumented Google Weather API}
 

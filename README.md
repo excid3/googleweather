@@ -3,7 +3,8 @@
 gw = Googleweather.new('Philadelphia')
 
 ## Current Weather
-````
+
+```
 gw.now
 
 ## Forecast for specific day this week

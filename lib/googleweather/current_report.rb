@@ -1,6 +1,6 @@
 module Googleweather
   class CurrentReport
-    attr_accessor :temp_f, :temp_c, :humidity, :wind, :img
+    attr_reader :temp_f, :temp_c, :humidity, :wind, :img, :condition
     
     def initialize(data = {})
       @temp_f      = data[:temp_f]

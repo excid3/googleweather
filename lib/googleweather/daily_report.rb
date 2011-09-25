@@ -1,6 +1,6 @@
 module Googleweather
   class DailyReport
-    attr_accessor :day, :high, :low, :condition, :img
+    attr_reader :day, :high, :low, :condition, :img
     
     def initialize(data = {})
       @day  = data[:day]

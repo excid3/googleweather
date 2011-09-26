@@ -18,19 +18,22 @@ module Googleweather
     
     def initialize(xml)
       feed = Nokogiri::XML(xml)
-      @data = feed.at_css('weather')
       
-      fi = @data.at_css('forecast_information')
-      @city          = node_data(fi, 'city')
-      @postal_code   = node_data(fi, 'postal_code')
-      @units         = node_data(fi, 'unit_system_data')
-      @latitude      = node_data(fi, 'latitude_e6')
-      @longitude     = node_data(fi, 'longitude_e6')
-      @forecase_date = node_data(fi, 'forecast_date')
-      @current_date  = node_data(fi, 'current_date_time')
+      if feed
+        @data = feed.at_css('weather')
       
-      update_current_conditions
-      update_forecast
+        fi = @data.at_css('forecast_information')
+        @city          = node_data(fi, 'city')
+        @postal_code   = node_data(fi, 'postal_code')
+        @units         = node_data(fi, 'unit_system_data')
+        @latitude      = node_data(fi, 'latitude_e6')
+        @longitude     = node_data(fi, 'longitude_e6')
+        @forecase_date = node_data(fi, 'forecast_date')
+        @current_date  = node_data(fi, 'current_date_time')
+      
+        update_current_conditions
+        update_forecast
+      end  
     end  
     
     def now

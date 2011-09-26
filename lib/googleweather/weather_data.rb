@@ -11,7 +11,7 @@ module Googleweather
       :mon  => DailyReport.new,
       :tue  => DailyReport.new,
       :wed  => DailyReport.new,
-      :thur => DailyReport.new,
+      :thu => DailyReport.new,
       :fri  => DailyReport.new,
       :sat  => DailyReport.new
     }

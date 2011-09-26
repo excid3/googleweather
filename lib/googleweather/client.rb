@@ -11,10 +11,10 @@ module Googleweather
     
     def initialize(city_or_zip)
       if city_or_zip.to_i == 0
-        @city  = city_or_zip
+        @city = city_or_zip
       else
-        @zip = city_or_zip.to_s
-      end     
+        @zip = city_or_zip
+      end    
       
       update_weather    
     end

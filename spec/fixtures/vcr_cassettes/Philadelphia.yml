@@ -1,0 +1,50 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.google.com:80/ig/api?weather=Philadelphia
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - text/xml; charset=ISO-8859-1
+      date:
+      - Mon, 27 Feb 2012 03:04:30 GMT
+      pragma:
+      - no-cache
+      expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      cache-control:
+      - no-cache, no-store, must-revalidate
+      set-cookie:
+      - PREF=ID=e2a24d4862cb26aa:TM=1330311870:LM=1330311870:S=S1E4T6j9xiDA7O8l; expires=Wed,
+        26-Feb-2014 03:04:30 GMT; path=/; domain=.google.com
+      x-content-type-options:
+      - nosniff
+      server:
+      - igfe
+      x-xss-protection:
+      - 1; mode=block
+      transfer-encoding:
+      - chunked
+    body: ! '<?xml version="1.0"?><xml_api_reply version="1"><weather module_id="0"
+      tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" ><forecast_information><city
+      data="Philadelphia, PA"/><postal_code data="Philadelphia"/><latitude_e6 data=""/><longitude_e6
+      data=""/><forecast_date data="2012-02-26"/><current_date_time data="2012-02-27
+      01:54:00 +0000"/><unit_system data="US"/></forecast_information><current_conditions><condition
+      data="Clear"/><temp_f data="38"/><temp_c data="3"/><humidity data="Humidity:
+      62%"/><icon data="/ig/images/weather/sunny.gif"/><wind_condition data="Wind:
+      S at 7 mph"/></current_conditions><forecast_conditions><day_of_week data="Sun"/><low
+      data="34"/><high data="47"/><icon data="/ig/images/weather/sunny.gif"/><condition
+      data="Clear"/></forecast_conditions><forecast_conditions><day_of_week data="Mon"/><low
+      data="36"/><high data="57"/><icon data="/ig/images/weather/sunny.gif"/><condition
+      data="Clear"/></forecast_conditions><forecast_conditions><day_of_week data="Tue"/><low
+      data="37"/><high data="50"/><icon data="/ig/images/weather/sunny.gif"/><condition
+      data="Clear"/></forecast_conditions><forecast_conditions><day_of_week data="Wed"/><low
+      data="39"/><high data="48"/><icon data="/ig/images/weather/chance_of_rain.gif"/><condition
+      data="Chance of Rain"/></forecast_conditions></weather></xml_api_reply>'
+    http_version: '1.1'

@@ -1,10 +1,11 @@
 require 'nokogiri'
-require_relative 'daily_report'
-require_relative 'current_report'
+
+require 'googleweather/daily_report'
+require 'googleweather/current_report'
 
 module Googleweather
   class WeatherData
-    attr_reader :city, :postal_code, :latitude, :longitude, :forecast_date, :current_date, :units
+    attr_reader :city, :postal_code, :latitude, :longitude, :forecast_date, :current_date, :units, :xml
     
     DAYS = {
       :sun  => DailyReport.new,
@@ -17,23 +18,24 @@ module Googleweather
     }
     
     def initialize(xml)
-      feed = Nokogiri::XML(xml)
+      @xml = xml
+      #feed = Nokogiri::XML(xml)
       
-      if feed
-        @data = feed.at_css('weather')
+      #if feed
+      #  @data = feed.at_css('weather')
+      #  
+      #  fi = @data.at_css('forecast_information')
+      #  @city          = node_data(fi, 'city')
+      #  @postal_code   = node_data(fi, 'postal_code')
+      #  @units         = node_data(fi, 'unit_system_data')
+      #  @latitude      = node_data(fi, 'latitude_e6')
+      #  @longitude     = node_data(fi, 'longitude_e6')
+      #  @forecase_date = node_data(fi, 'forecast_date')
+      #  @current_date  = node_data(fi, 'current_date_time')
       
-        fi = @data.at_css('forecast_information')
-        @city          = node_data(fi, 'city')
-        @postal_code   = node_data(fi, 'postal_code')
-        @units         = node_data(fi, 'unit_system_data')
-        @latitude      = node_data(fi, 'latitude_e6')
-        @longitude     = node_data(fi, 'longitude_e6')
-        @forecase_date = node_data(fi, 'forecast_date')
-        @current_date  = node_data(fi, 'current_date_time')
-      
-        update_current_conditions
-        update_forecast
-      end  
+       # update_current_conditions
+       # update_forecast
+      #end  
     end  
     
     def now

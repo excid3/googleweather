@@ -19,6 +19,12 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  # s.add_development_dependency ""
+  s.add_development_dependency "minitest"
+  s.add_development_dependency "mocha"
+  s.add_development_dependency "vcr"  
+  s.add_development_dependency "minitest-debugger"  
+  s.add_development_dependency "guard-minitest"
+  s.add_development_dependency "webmock"
+  
   s.add_runtime_dependency "nokogiri"
 end

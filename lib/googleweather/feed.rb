@@ -34,9 +34,9 @@ module Googleweather
       response = Net::HTTP.get_response(url)
 
       @body          = response.body
-      @response_code = response.code
+      @response_code = response.code.to_i
 
-      if @response_code == "200"
+      if @response_code == 200
         @error = false
       else
         @error = true

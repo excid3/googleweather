@@ -33,8 +33,8 @@ module Googleweather
         @forecase_date = node_data(fi, 'forecast_date')
         @current_date  = node_data(fi, 'current_date_time')
 
-       # update_current_conditions
-       # update_forecast
+        update_current_conditions
+        update_forecast
       end
     end
 
